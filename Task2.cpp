@@ -98,7 +98,8 @@ void do_file(FILE *in, FILE *out, OPTIONS *options)
 			int decform = (int)(ch & 0x00FF);
 			char hex[33];
  
-			itoa (decform,hex,16);
+			//itoa (decform,hex,16);
+			sprintf(hex,"%x", decform);
 
 			//File system
 			if(partition1 == 2){
@@ -171,7 +172,8 @@ void do_file(FILE *in, FILE *out, OPTIONS *options)
 			int decform = (int)(ch & 0x00FF);
 			char hex [33];
  
-			itoa (decform,hex,16);
+			//itoa (decform,hex,16);
+			sprintf(hex,"%x", decform);
 		
 			//File system
 			if(partition2 == 2){
@@ -245,8 +247,8 @@ void do_file(FILE *in, FILE *out, OPTIONS *options)
 			int decform = (int)(ch & 0x00FF);
 			char hex [33];
  
-			itoa (decform,hex,16);
-			//printf ("hex: %s\n",hex);
+			//itoa (decform,hex,16);
+			sprintf(hex,"%x", decform);
 
 			//File system
 			if(partition3 == 2){
@@ -319,8 +321,8 @@ void do_file(FILE *in, FILE *out, OPTIONS *options)
 			int decform = (int)(ch & 0x00FF);
 			char hex [33];
  
-			itoa (decform,hex,16);
-			//printf ("hex: %s\n",hex);
+			//itoa (decform,hex,16);
+			sprintf(hex,"%x", decform);
 
 			//File system
 			if(partition4 == 2){
@@ -399,7 +401,8 @@ void do_file(FILE *in, FILE *out, OPTIONS *options)
 
 				int decform = (int)(ch & 0x00FF);
 				char hex [33];
-				itoa (decform,hex,16);
+				//itoa (decform,hex,16);
+				sprintf(hex,"%x", decform);
 
 				if(part1 == 0){
 					printf("===================================================\n");
@@ -478,7 +481,8 @@ void do_file(FILE *in, FILE *out, OPTIONS *options)
 			
 				int decform = (int)(ch & 0x00FF);
 				char hex [33];
-				itoa (decform,hex,16);
+				//itoa (decform,hex,16);
+				sprintf(hex,"%x", decform);
 
 				if(part2 == 0){
 					printf("===================================================\n");
@@ -557,7 +561,8 @@ void do_file(FILE *in, FILE *out, OPTIONS *options)
 			
 				int decform = (int)(ch & 0x00FF);
 				char hex [33];
-				itoa (decform,hex,16);
+				//itoa (decform,hex,16);
+				sprintf(hex,"%x", decform);
 
 				if(part3 == 0){
 					printf("===================================================\n");
@@ -636,7 +641,9 @@ void do_file(FILE *in, FILE *out, OPTIONS *options)
 			
 				int decform = (int)(ch & 0x00FF);
 				char hex [33];
-				itoa (decform,hex,16);
+				//itoa (decform,hex,16);
+
+				sprintf(hex,"%x", decform);
 
 				if(part4 == 0){
 					printf("===================================================\n");
