@@ -3,9 +3,13 @@
 #include <string.h>
 #include <string>
 #include <iostream>
+#include <fstream>
+#include <ostream>
 #include <iomanip>
 #include <ctype.h>
 #include <fcntl.h>
+
+using namespace std;
 
 //forward declarations
 std::string getFS(char* c);
@@ -817,6 +821,10 @@ int getHexadecimal(std::string hex){
 	return (int)strtol(hex.c_str(), 0 , 16);
 }
 
+ostream *fileOutStream;
+string filename = "", changedFileName = "", newFileName = "";
+fstream fileInput;
+
 int main(int argc, char *argv[])
 {
 	if (argc < 2)
@@ -839,6 +847,34 @@ int main(int argc, char *argv[])
 		}
 		else
 		{
+			//Create MD5 and SHA1 file names
+			arg++;
+
+			filename = argv[arg];
+
+			string changedFileName = "fciv " + filename + " -MD5 > " + filename + "-MD5.txt ";
+
+			system(changedFileName.c_str()); //pass filename to the system
+
+			changedFileName = "fciv " + filename + " -SHA1 > " + filename + "-SHA1.txt ";
+			
+			system(changedFileName.c_str());
+
+			fileInput.open(filename, ios::in | ios::binary);
+
+			//after opening the file name, open the new files
+			newFileName = argv[arg];
+
+			fileInput.open(newFileName, ios::out);
+			fileOutStream = &fileInput;
+
+			//catch error if the file is not open
+			if (!fileInput.is_open()) 
+			{
+				cout << "Unable to open the file, " << endl;
+				return 0;	
+			}
+
 			do_file(f, stdout, &options);
 			fclose(f);
 		}
@@ -846,3 +882,6 @@ int main(int argc, char *argv[])
 
 	return 0;
 }
+
+
+
