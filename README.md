@@ -1,1 +1,2 @@
 # CFProject
+The purpose of this project is to write code that pertains to each of the three main tasks of the forensic process: acquisition, authentication, and analysis. Since the project will require many address conversions, we are also required to write a utility that can convert between multiple hard drive address types, the details of which are below. The code for this project is in a Linux-­‐ compatible language (i.e. C++).
